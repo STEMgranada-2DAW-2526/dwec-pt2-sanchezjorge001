@@ -15,25 +15,24 @@ function AppContent(){
     <div>
       <div>
         <h1>Defensor del Polo Norte</h1>
-        <button>DISPARAR</button><br/>
-        
+        <button onClick={() => dispatch({type: 'CLICK_SHOT'})}>DISPARAR</button><br/>
         <img src={canion} alt="Cañón" width={200} />
       </div>
       <div>
-        <CañonProvider>
           <UpgardesBoard />
-        </CañonProvider>
       </div>
     </div>
     
-  )
+  );
 }
 
-
-}
 
 function App() {
-
+  return(
+    <CañonProvider>
+      <AppContent />
+    </CañonProvider>
+  )
 }
 
 export default App
