@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import React, { createContext, useEffect } from 'react'
 
 const CañonContext = createContext();
 
@@ -34,3 +34,18 @@ function CañonReducer(state, action) {
 
 export function CañonProvider({ children }) {
     const [state, dispatch] = useReducer(CañonReducer, initialState);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            dispatch({ type: 'AUTO_SHOT' });
+        }, 1000 / state.autoShotsPerSecond);
+        return () => clearInterval(interval);
+    }, []);
+
+
+    return (
+        <CañonContext.Provider value={{ state, dispatch }}>
+            {children}
+        </CañonContext.Provider>
+    );
+}
