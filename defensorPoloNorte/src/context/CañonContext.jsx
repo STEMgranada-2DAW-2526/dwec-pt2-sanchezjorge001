@@ -4,7 +4,7 @@ const CañonContext = createContext();
 
 const initialState = {
     damageDealt: 0,
-    waveGoal: 100,
+    waveGoal: 10,
     caramels: 20,
     damagePerShot: 1,
     waveNumber: 1,
@@ -17,12 +17,13 @@ function CañonReducer(state, action) {
 
     let output = state;
 
-    if(action.type == 'CLICK_SHOT') {
+
+    if(action.type == 'CLICK_SHOT' && state.waveGoal > 0) {
         output = {
             ...state, waveGoal: state.waveGoal - state.damagePerShot,
             damageDealt: state.damageDealt + state.damagePerShot
         }
-    } else if(action.type == 'AUTO_SHOT ') {
+    } else if(action.type == 'AUTO_SHOT ' && state.waveGoal > 0) {
         output = {
             ...state, waveGoal: state.waveGoal - state.autoShotsPerSecond * state.damagePerShot,
             damageDealt: state.damageDealt + state.autoShotsPerSecond * state.damagePerShot
@@ -35,6 +36,7 @@ function CañonReducer(state, action) {
     } else if(action.type == 'BUY_AUTO_SHOT_UPGRADE') {
 
     } else if(action.type == 'NEXT_WAVE' && state.waveGoal <= 0) {
+
         output = {
             ...state,
             waveNumber: state.waveNumber + 1,
