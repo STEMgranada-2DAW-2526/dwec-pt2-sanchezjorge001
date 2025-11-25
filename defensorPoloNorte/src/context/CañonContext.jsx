@@ -34,10 +34,16 @@ function CañonReducer(state, action) {
 
     } else if(action.type == 'BUY_AUTO_SHOT_UPGRADE') {
 
-    } elseif(action.type == 'NEXT_WAVE') {
+    } else if(action.type == 'NEXT_WAVE' && state.waveGoal <= 0) {
         output = {
             ...state,
             waveNumber: state.waveNumber + 1,
+            waveGoal: state.waveGoal * 0.1 + state.waveGoal,
+            caramels: state.caramels + 10,
+            damageDealt: 0,
+        }
+    }
+
     return output;
 
 }

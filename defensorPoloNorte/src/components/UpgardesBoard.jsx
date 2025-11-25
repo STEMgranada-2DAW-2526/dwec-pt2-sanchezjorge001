@@ -25,6 +25,9 @@ export default function UpgardesBoard() {
       <button>
         <img src={multiplicadorPuntos} alt="Multiplicador de puntos" width={100}/>
       </button>
+
+      <br/>
+        <button onClick={() => dispatch({type: 'NEXT_WAVE'})}>SIGUIENTE OLEADA</button>
     </div>
   )
 }

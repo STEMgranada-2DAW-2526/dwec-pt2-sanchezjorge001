@@ -15,7 +15,7 @@ function AppContent(){
   return (
     <div>
       <div>
-        <h3>Daño de oleada: {state.waveGoal}</h3>
+        <h3>Daño de oleada: {Math.round(state.waveGoal)}</h3>
         <h3>Caramelos: {state.caramels} 
           <img src={caramelos} alt="Caramelos" width={30}/>
         </h3>
