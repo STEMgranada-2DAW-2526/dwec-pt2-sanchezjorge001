@@ -13,17 +13,17 @@ export default function UpgardesBoard() {
   return (
     <div>
       <button>
-        <img src={canionTurron} alt="Cañón de turrón" />
+        <img src={canionTurron} alt="Cañón de turrón" width={100}/>
       </button>
       <button>
-        <img src={renosLanzaMisiles} alt="Renos lanza misiles" />
+        <img src={renosLanzaMisiles} alt="Renos lanza misiles" width={100}/>
       </button>
       <button>
-        <img src={arbolLaser} alt="Árbol láser" />
+        <img src={arbolLaser} alt="Árbol láser" width={100}/>
       </button>
 
       <button>
-        <img src={multiplicadorPuntos} alt="Multiplicador de puntos" />
+        <img src={multiplicadorPuntos} alt="Multiplicador de puntos" width={100}/>
       </button>
     </div>
   )

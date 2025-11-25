@@ -1,10 +1,10 @@
-import React, { createContext, use, useEffect, useReducer } from 'react'
+import React, { createContext, use, useEffect, useReducer, useContext } from 'react'
 
 const CañonContext = createContext();
 
 const initialState = {
     damageDealt: 0,
-    wavegGoal: 100,
+    waveGoal: 100,
     caramels: 20,
     damagePerShot: 1,
     autoShotsPerSecond: 1,
@@ -17,8 +17,14 @@ function CañonReducer(state, action) {
     let output = state;
 
     if(action.type == 'CLICK_SHOT') {
-    
+        output = {
+            ...state, waveGoal: state.waveGoal - state.damagePerShot,
+            damageDealt: state.damageDealt + state.damagePerShot
+        }
     } else if(action.type == 'AUTO_SHOT ') {
+        output = {
+            
+        }
 
     } else if(action.type == 'BUY_MULTIPLIER') {
 
