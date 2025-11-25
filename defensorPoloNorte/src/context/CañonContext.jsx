@@ -23,7 +23,8 @@ function CañonReducer(state, action) {
         }
     } else if(action.type == 'AUTO_SHOT ') {
         output = {
-            
+            ...state, waveGoal: state.waveGoal - state.autoShotsPerSecond * state.damagePerShot,
+            damageDealt: state.damageDealt + state.autoShotsPerSecond * state.damagePerShot
         }
 
     } else if(action.type == 'BUY_MULTIPLIER') {
@@ -42,10 +43,10 @@ export function CañonProvider({ children }) {
     const [state, dispatch] = useReducer(CañonReducer, initialState);
 
     useEffect(() => {
-        const interval = setInterval(() => {
+        const timer = setInterval(() => {
             dispatch({ type: 'AUTO_SHOT' });
-        }, 1000 / state.autoShotsPerSecond);
-        return () => clearInterval(interval);
+        }, 1000);
+        return () => clearInterval(timer);
     }, []);
 
 
