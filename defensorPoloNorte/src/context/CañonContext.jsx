@@ -7,6 +7,7 @@ const initialState = {
     waveGoal: 100,
     caramels: 20,
     damagePerShot: 1,
+    waveNumber: 1,
     autoShotsPerSecond: 1,
     upgrades: [],
 };
@@ -33,8 +34,10 @@ function CañonReducer(state, action) {
 
     } else if(action.type == 'BUY_AUTO_SHOT_UPGRADE') {
 
-    }
-
+    } elseif(action.type == 'NEXT_WAVE') {
+        output = {
+            ...state,
+            waveNumber: state.waveNumber + 1,
     return output;
 
 }
