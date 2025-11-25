@@ -1,4 +1,4 @@
-import React, { createContext, useEffect } from 'react'
+import React, { createContext, use, useEffect } from 'react'
 
 const CañonContext = createContext();
 
@@ -48,4 +48,9 @@ export function CañonProvider({ children }) {
             {children}
         </CañonContext.Provider>
     );
+}
+
+
+export function useCañon() {
+    return useContext(CañonContext);
 }
