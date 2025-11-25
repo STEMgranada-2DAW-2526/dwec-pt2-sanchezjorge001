@@ -4,13 +4,17 @@ const CañonContext = createContext();
 
 const initialState = {
     damageDealt: 0,
-    waveGoal: 1000,
-    caramels: 200,
+    waveGoal: 100,
+    caramels: 20,
     damagePerShot: 1,
     waveNumber: 1,
     autoShotsPerSecond: 1,
     priceMultiplier: 10,
-    upgrades: [],
+    upgrades: {
+        canionTurron: { damage: 2, price: 15, count: 0 },
+        renosLanzamisiles: { damage: 5, price: 30, count: 0 },
+        arbolLaser: { damage: 10, price: 50, count: 0 }
+    },
 };
 
 
@@ -39,9 +43,11 @@ function CañonReducer(state, action) {
         
 
 
-    } else if(action.type == 'BUY_DAMAGE_UPGRADE') {
-
-
+    } else if(action.type == 'BUY_DAMAGE_UPGRADE' && upgrades[price] <= state.caramels) {
+        output = {
+            ...state, caramels: state.caramels - upgrades[price],
+            damagePerShot: state.damagePerShot + upgrades[damage],
+        }   
     } else if(action.type == 'NEXT_WAVE' && state.waveGoal <= 0) {
 
         output = {
@@ -63,9 +69,9 @@ export function CañonProvider({ children }) {
     useEffect(() => {
         const timer = setInterval(() => {
             dispatch({ type: 'AUTO_SHOT' });
-        }, 1000);
+        }, 1000 / state.autoShotsPerSecond);
         return () => clearInterval(timer);
-    }, []);
+    }, [state.autoShotsPerSecond]);
 
 
     return (
