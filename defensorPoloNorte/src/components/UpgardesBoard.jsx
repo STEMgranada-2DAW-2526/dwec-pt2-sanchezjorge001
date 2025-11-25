@@ -23,7 +23,7 @@ export default function UpgardesBoard() {
       </button>
 
       <button>
-        <img onClick={()=> dispatch({type: 'BUY_DAMAGE_UPGRADE'})} src={multiplicadorPuntos} alt="Multiplicador de puntos" width={100}/>
+        <img onClick={()=> dispatch({type: 'BUY_MULTIPLIER'})} src={multiplicadorPuntos} alt="Multiplicador de puntos" width={100}/>
       </button>
 
       <br/>

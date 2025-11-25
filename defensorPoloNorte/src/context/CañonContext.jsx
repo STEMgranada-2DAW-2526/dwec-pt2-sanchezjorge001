@@ -4,8 +4,8 @@ const CañonContext = createContext();
 
 const initialState = {
     damageDealt: 0,
-    waveGoal: 100,
-    caramels: 20,
+    waveGoal: 1000,
+    caramels: 200,
     damagePerShot: 1,
     waveNumber: 1,
     autoShotsPerSecond: 1,
@@ -41,7 +41,6 @@ function CañonReducer(state, action) {
 
     } else if(action.type == 'BUY_DAMAGE_UPGRADE') {
 
-    } else if(action.type == 'BUY_AUTO_SHOT_UPGRADE') {
 
     } else if(action.type == 'NEXT_WAVE' && state.waveGoal <= 0) {
 
