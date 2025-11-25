@@ -1,6 +1,6 @@
 import canionTurron from '../assets/canion_turron.png';
 import arbolLaser from '../assets/arbol_laser.png';
-import renosLanzaMisiles from '../assets/reno-lanza-cohete.png';
+import renosLanzaMisiles from '../assets/reno_lanza_cohetes.png';
 import multiplicadorPuntos from '../assets/multiplicador.png';
 import { useCañon } from '../context/CañonContext';
 
@@ -14,6 +14,16 @@ export default function UpgardesBoard() {
     <div>
       <button>
         <img src={canionTurron} alt="Cañón de turrón" />
+      </button>
+      <button>
+        <img src={renosLanzaMisiles} alt="Renos lanza misiles" />
+      </button>
+      <button>
+        <img src={arbolLaser} alt="Árbol láser" />
+      </button>
+
+      <button>
+        <img src={multiplicadorPuntos} alt="Multiplicador de puntos" />
       </button>
     </div>
   )

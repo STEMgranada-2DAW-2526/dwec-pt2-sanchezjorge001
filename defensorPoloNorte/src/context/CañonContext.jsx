@@ -1,4 +1,4 @@
-import React, { createContext, use, useEffect } from 'react'
+import React, { createContext, use, useEffect, useReducer } from 'react'
 
 const CañonContext = createContext();
 
@@ -24,7 +24,7 @@ function CañonReducer(state, action) {
 
     } else if(action.type == 'BUY_DAMAGE_UPGRADE') {
 
-    } else if(){
+    } else if(action.type == 'BUY_AUTO_SHOT_UPGRADE') {
 
     }
 
